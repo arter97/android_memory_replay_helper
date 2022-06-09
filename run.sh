@@ -50,6 +50,11 @@ freeram() {
   echo 1 > /proc/sys/vm/compact_memory
 }
 
+if [ ! -e traces/ ]; then
+  echo "Please add traces/*.zip from system/extras/memory_replay/traces"
+  exit 1
+fi
+
 # Close stdin
 exec 0<&-
 
